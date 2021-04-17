@@ -61,7 +61,7 @@ public class MainClass {
                 for (int i = nick; i< s.length();i++){
                     if(s.charAt(i) == ','){
                         endnick =  i;
-                        break;;
+                        break;
                     }
                 }
                 answer.setNickname(s.substring(nick,endnick));
