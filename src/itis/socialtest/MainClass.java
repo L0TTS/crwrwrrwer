@@ -72,13 +72,13 @@ public class MainClass {
                 for (int i = 0; i< s.length();i++){
                     if(s.charAt(i) == ','){
                         bl = i + 2;
-                        break;;
+                        break;
                     }
                 }
                 for (int i = bl; i< s.length();i++){
                     if(s.charAt(i) == ','){
                         el =  i;
-                        break;;
+                        break;
                     }
                 }
                 String string = s.substring(bl,el);
