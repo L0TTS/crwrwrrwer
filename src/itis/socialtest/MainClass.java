@@ -55,7 +55,7 @@ public class MainClass {
                 for (int i = 0; i< s.length();i++){
                     if(s.charAt(i) == ','){
                         nick = i + 1;
-                        break;;
+                        break;
                     }
                 }
                 for (int i = nick; i< s.length();i++){
@@ -91,9 +91,6 @@ public class MainClass {
             String s = bw.readLine();
             Post answer;
 
-            while (s!= null){
-                answer.
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
