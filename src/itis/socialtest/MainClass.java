@@ -1,8 +1,10 @@
 package itis.socialtest;
 
 
+import itis.socialtest.entities.Author;
 import itis.socialtest.entities.Post;
 
+import java.io.*;
 import java.util.List;
 
 
@@ -35,12 +37,65 @@ public class MainClass {
 
     private AnalyticsService analyticsService = new AnalyticsServiceImpl();
 
-    public static void main(String[] args) {
-        new MainClass().run("", "");
+    public static void main(String[] args) throws FileNotFoundException {
+        new MainClass().run("PostDatabase.csv", "Authors.csv");
     }
 
-    private void run(String postsSourcePath, String authorsSourcePath) {
+    private void run(String postsSourcePath, String authorsSourcePath) throws FileNotFoundException {
+        try(BufferedReader bw = new BufferedReader(new FileReader(authorsSourcePath)))
+        {
+            String s = bw.readLine();
+            Author answer = null;
+            Post ans = null;
 
+            while (s!= null){
+                answer.setId((long) s.charAt(0));
+                int nick = -1;
+                int endnick = -1;
+                for (int i = 0; i< s.length();i++){
+                    if(s.charAt(i) == ','){
+                        nick = i + 1;
+                        break;;
+                    }
+                }
+                for (int i = nick; i< s.length();i++){
+                    if(s.charAt(i) == ','){
+                        endnick =  i;
+                        break;;
+                    }
+                }
+                answer.setNickname(s.substring(nick,endnick));
+                answer.setBirthdayDate(s.substring(endnick + 2, s.length() + 1));
+                ans.setAuthor(answer);
+                int bl = -1;
+                int el = -1;
+                for (int i = 0; i< s.length();i++){
+                    if(s.charAt(i) == ','){
+                        bl = i + 2;
+                        break;;
+                    }
+                }
+                for (int i = bl; i< s.length();i++){
+                    if(s.charAt(i) == ','){
+                        el =  i;
+                        break;;
+                    }
+                }
+                String string = s.substring(bl,el);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try(BufferedReader bw = new BufferedReader(new FileReader(postsSourcePath)))
+        {
+            String s = bw.readLine();
+            Post answer;
 
+            while (s!= null){
+                answer.
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

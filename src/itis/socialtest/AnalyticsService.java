@@ -3,6 +3,8 @@ package itis.socialtest;
 
 import itis.socialtest.entities.Post;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public interface AnalyticsService {
@@ -11,7 +13,7 @@ public interface AnalyticsService {
 
     Boolean checkPostsThatContainsSearchString(List<Post> posts, String searchString);
 
-    List<Post> findAllPostsByAuthorNickname(List<Post> posts, String nick);
+    List<Post> findAllPostsByAuthorNickname(List<Post> posts, String nick) throws IOException;
 
-    String findMostPopularAuthorNickname(List<Post> posts);
+    String findMostPopularAuthorNickname(List<Post> posts) throws IOException;
 }
